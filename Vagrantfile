@@ -22,10 +22,6 @@ Vagrant.configure("2") do |config|
       echo -n "\\set PROMPT1 '%#@%/=#'" | sudo tee -a /var/lib/pgsql/.psqlrc
       #5 задание
       echo -n "\\timing on" | sudo tee -a /var/lib/pgsql/.psqlrc
-
-
     #3 лекция
-
-      
     SHELL
 end
