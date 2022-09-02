@@ -5,9 +5,9 @@ Vagrant.configure("2") do |config|
       sudo postgresql-setup --initdb
       sudo systemctl start postgresql
       sudo systemctl enable postgresql
-	  sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant;'
-	  sudo -u postgres psql -c '\t' -c '\a' -c 'ALTER USER vagrant SUPERUSER;'
-	  mkdir ./homework/ && chown vagrant:vagrant ./homework/
+      sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant;'
+      sudo -u postgres psql -c '\t' -c '\a' -c 'ALTER USER vagrant SUPERUSER;'
+      mkdir ./homework/ && chown vagrant:vagrant ./homework/
 
     #2 лекция
       #1 задание
@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
       echo -en "\n\n2 задание\n" | sudo -u vagrant tee -a ./homework/02_lesson
       sudo -u vagrant psql postgres -c '\t' -c '\a' -c 'SELECT * FROM pg_tables;' | sudo -u vagrant tee -a ./homework/02_lesson
       #3 задание
-      echo -n "\\setenv PAGER 'less -XS'" | sudo tee /var/lib/pgsql/.psqlrc
+      echo -en "\\setenv PAGER 'less -XS'\n" | sudo tee /home/vagrant/.psqlrc
       #4 задание
-      echo -n "\\set PROMPT1 '%#@%/=#'" | sudo tee -a /var/lib/pgsql/.psqlrc
+      echo -en "\\set PROMPT1 '%#@%/=#'\n" | sudo tee -a /home/vagrant/.psqlrc
       #5 задание
-      echo -n "\\timing on" | sudo tee -a /var/lib/pgsql/.psqlrc
+      echo -n "\\timing on" | sudo tee -a /home/vagrant/.psqlrc
     #3 лекция
     SHELL
 end
