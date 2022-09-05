@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
       sudo systemctl start postgresql
       sudo systemctl enable postgresql
       sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant; ALTER USER vagrant SUPERUSER; ALTER USER vagrant CREATEDB;'
-      mkdir ./homework/ && chown vagrant:vagrant ./homework/
+      sudo mkdir ./homework/ && sudo chown vagrant:vagrant ./homework/
 
     #2 лекция
       #1 задание
