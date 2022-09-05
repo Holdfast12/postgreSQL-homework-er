@@ -5,9 +5,7 @@ Vagrant.configure("2") do |config|
       sudo postgresql-setup --initdb
       sudo systemctl start postgresql
       sudo systemctl enable postgresql
-      sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant;'
-      sudo -u postgres psql -c '\t' -c '\a' -c 'ALTER USER vagrant SUPERUSER;'
-      sudo -u postgres psql -c '\t' -c '\a' -c 'ALTER USER vagrant CREATEDB;'
+      sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant; ALTER USER vagrant SUPERUSER; ALTER USER vagrant CREATEDB;'
       mkdir ./homework/ && chown vagrant:vagrant ./homework/
 
     #2 лекция
@@ -24,8 +22,9 @@ Vagrant.configure("2") do |config|
       #5 задание
       echo -n "\\timing on" | sudo tee -a /home/vagrant/.psqlrc
     #8 лекция
-      #создание баз данных в кластере, по умолчанию шаблон template1
+      #создание базы данных в кластере, по умолчанию шаблон template1
       sudo -u vagrant psql postgres -c 'CREATE DATABASE vagrant;'
+      #установка расширения на шаблон
       sudo -u vagrant psql template1 -c 'CREATE EXTENSION pgcrypto;'
       sudo -u vagrant psql postgres -c 'CREATE DATABASE db;'
     SHELL
