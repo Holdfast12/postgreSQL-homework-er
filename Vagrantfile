@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
       sudo postgresql-setup --initdb
       sudo systemctl start postgresql
       sudo systemctl enable postgresql
-      sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant; ALTER USER vagrant SUPERUSER; ALTER USER vagrant CREATEDB;'
+      sudo -u postgres psql -c '\t' -c '\a' -c 'CREATE USER vagrant WITH SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS;'
       sudo mkdir ./homework/ && sudo chown vagrant:vagrant ./homework/
 
     #2 лекция
